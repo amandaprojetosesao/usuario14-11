@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Autorização
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #meuForm='ngForm'>
+    <ion-item>
+      <ion-label position="floating"> Motivo para saída do aluno: </ion-label>
+      <ion-input #motivo='ngModel' type="text" [(ngModel)]="autorizar.motivo" name='motivo' placeholder="Insire o motivo" required> </ion-input>
+    </ion-item>
+
+    <span style='color:red' *ngIf="motivo.errors && motivo.touched">
+      <ion-label> O motivo é obrigatório! </ion-label>
+    </span>
+
+    <ion-item>
+      <ion-label position="floating"> Parentesco de quem buscará o aluno: </ion-label>
+      <ion-input #parentesco='ngModel' type="text" [(ngModel)]="autorizar.parentesco" name='parentesco' placeholder="Insire o parentesco" required> </ion-input>
+    </ion-item>
+
+    <span style='color:red' *ngIf="parentesco.errors && parentesco.touched">
+      <ion-label> O parentesco é obrigatório! </ion-label>
+    </span>
+
+    <ion-item>
+      <ion-label position="floating"> Horário: </ion-label>
+      <ion-input #horario='ngModel' type="text" [(ngModel)]="autorizar.horario" name='horario' placeholder="Insire o horario" required> </ion-input>
+    </ion-item>
+
+    <span style='color:red' *ngIf="horario.errors && horario.touched">
+      <ion-label> O horário é obrigatório! </ion-label>
+    </span>
+
+    <ion-button [disabled]='!meuForm.form.valid' expand="full" (click)='enviar()' shape='round'> Enviar </ion-button>
+    <ion-button expand=full href='pagina' shape='round'> Voltar </ion-button>
+
+  </form>
+</ion-content>
